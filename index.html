@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  </head>
+
+  <body ng-controller="MovieCtrl">
+    <h1>May The Force Be With You!</h1>
+    <div class="charButton" ng-repeat="character in characters">
+      <button ng-click="getMovies(character.url)">{{character.name}}</button>
+    </div>
+    <div style="clear:both"></div>
+    
+    <table ng-show="showMovies">
+      <tr ng-repeat="movie in movies">
+        <td>{{movie.title}}</td>
+        <td>{{movie.releaseDate}}</td>
+      </tr>
+    </table>
+
+    <h1 ng-show="!showMovies">No movies associated with this character</h1>
+    
+    <script src="script.js"></script>
+  </body>
+
+</html>
